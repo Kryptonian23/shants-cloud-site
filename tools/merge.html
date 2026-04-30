@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shants PDF - Merge</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    .nav {
+      background: #111827;
+      color: white;
+      padding: 12px 20px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 { margin-top: 0; }
+
+    .instructions {
+      margin-bottom: 20px;
+      padding: 12px;
+      background: #eef4ff;
+      border-radius: 10px;
+    }
+
+    .upload-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    button {
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button.secondary { background: #6b7280; }
+    button.danger { background: #dc2626; }
+
+    .drop-zone {
+      border: 2px dashed #93c5fd;
+      padding: 18px;
+      text-align: center;
+      margin-bottom: 18px;
+      border-radius: 10px;
+    }
+
+    .drop-zone.drag-over {
+      background: #e8f1ff;
+    }
+
+    ul { list-style: none; padding: 0; }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: grab;
+    }
+
+    li.dragging { opacity: 0.5; }
+
+    .actions button { margin-left: 5px; }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <a href="index.html">← Back to PDF Tools</a>
+  </div>
+
+  <div class="container">
+    <h1>Merge PDF</h1>
+
+    <div class="instructions">
+      Upload → Add → Drag to reorder → Merge
+    </div>
+
+    <div class="upload-row">
+      <input type="file" id="fileInput" accept="application/pdf" />
+      <button onclick="addPdf()">Add PDF</button>
+    </div>
+
+    <div id="dropZone" class="drop-zone">
+      Drag and drop PDFs here
+    </div>
+
+    <ul id="pdfList"></ul>
+
+    <button onclick="mergePDFs()">Merge PDFs</button>
+    <button class="secondary" onclick="clearAll()">Clear</button>
+  </div>
+
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+  <script>
+    let pdfFiles = [];
+    let draggedIndex = null;
+
+    function renderList() {
+      const list = document.getElementById('pdfList');
+      list.innerHTML = "";
+
+      pdfFiles.forEach((file, index) => {
+        const li = document.createElement('li');
+        li.draggable = true;
+        li.dataset.index = index;
+
+        li.addEventListener('dragstart', e => {
+          draggedIndex = index;
+          li.classList.add('dragging');
+        });
+
+        li.addEventListener('dragover', e => e.preventDefault());
+
+        li.addEventListener('drop', e => {
+          e.preventDefault();
+          const temp = pdfFiles[draggedIndex];
+          pdfFiles.splice(draggedIndex, 1);
+          pdfFiles.splice(index, 0, temp);
+          renderList();
+        });
+
+        li.addEventListener('dragend', () => {
+          li.classList.remove('dragging');
+        });
+
+        li.innerHTML = `
+          ${file.name}
+          <div class="actions">
+            <button onclick="removePdf(${index})">❌</button>
+          </div>
+        `;
+
+        list.appendChild(li);
+      });
+    }
+
+    function addPdf() {
+      const file = document.getElementById('fileInput').files[0];
+      if (!file) return;
+      pdfFiles.push(file);
+      renderList();
+    }
+
+    function removePdf(i) {
+      pdfFiles.splice(i, 1);
+      renderList();
+    }
+
+    function clearAll() {
+      pdfFiles = [];
+      renderList();
+    }
+
+    async function mergePDFs() {
+      const { PDFDocument } = PDFLib;
+
+      if (pdfFiles.length < 2) {
+        alert("Add at least 2 PDFs");
+        return;
+      }
+
+      const merged = await PDFDocument.create();
+
+      for (let file of pdfFiles) {
+        const bytes = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(bytes);
+        const pages = await merged.copyPages(pdf, pdf.getPageIndices());
+        pages.forEach(p => merged.addPage(p));
+      }
+
+      const bytes = await merged.save();
+      const blob = new Blob([bytes], { type: "application/pdf" });
+
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "merged.pdf";
+      a.click();
+    }
+
+    const dropZone = document.getElementById('dropZone');
+
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('drag-over');
+    });
+
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+
+      const files = [...e.dataTransfer.files];
+      files.forEach(f => {
+        if (f.type === "application/pdf") pdfFiles.push(f);
+      });
+
+      renderList();
+    });
+  </script>
+
+</body>
+</html>
