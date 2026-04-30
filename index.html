@@ -13,13 +13,51 @@
       color: white;
     }
 
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11,18,32,0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-cta {
+      background: #2563eb;
+      padding: 8px 16px;
+      border-radius: 6px;
+      color: white;
+    }
+
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
+      padding: 120px 20px 20px;
     }
 
     .hero-content {
@@ -119,6 +157,17 @@
 
 <body>
 
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo">Shants Cloud</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#process">Process</a>
+      <a href="#" class="nav-cta">Free Assessment</a>
+    </div>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
@@ -137,30 +186,30 @@
     <div class="pain-points">
       <div class="card"><h3>💸 Expensive Hardware</h3><p>Constant upgrades, repairs, and maintenance eating your budget.</p></div>
       <div class="card"><h3>⚠️ Risk of Data Loss</h3><p>No reliable backup system means one failure could cost everything.</p></div>
-      <div class="card"><h3>🐢 Slow Systems</h3><p>Outdated infrastructure slowing down your team and productivity.</p></div>
-      <div class="card"><h3>🔓 Security Concerns</h3><p>Worried about breaches, compliance, and protecting client data.</p></div>
+      <div class="card"><h3>🐢 Slow Systems</h3><p>Outdated infrastructure slowing down your team.</p></div>
+      <div class="card"><h3>🔓 Security Concerns</h3><p>Worried about breaches and compliance.</p></div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="section">
+  <section id="services" class="section">
     <h2>What I Do</h2>
     <div class="services">
-      <div class="card"><h3>☁️ Cloud Migration</h3><p>I move your systems from physical servers to AWS with zero disruption.</p></div>
-      <div class="card"><h3>🔒 Secure Infrastructure</h3><p>Private networks, access control, and enterprise-level protection.</p></div>
-      <div class="card"><h3>💾 Automated Backups</h3><p>Your business is always protected with automatic backups.</p></div>
-      <div class="card"><h3>📊 Monitoring</h3><p>Issues are detected and resolved before impacting operations.</p></div>
+      <div class="card"><h3>☁️ Cloud Migration</h3><p>Move to AWS without disruption.</p></div>
+      <div class="card"><h3>🔒 Security</h3><p>Private, protected infrastructure.</p></div>
+      <div class="card"><h3>💾 Backups</h3><p>Automatic protection for your data.</p></div>
+      <div class="card"><h3>📊 Monitoring</h3><p>Issues fixed before impact.</p></div>
     </div>
   </section>
 
   <!-- BENEFITS -->
-  <section class="section">
+  <section id="benefits" class="section">
     <h2>Why Move to the Cloud?</h2>
     <div class="benefits">
-      <div class="card"><h3>💰 Lower Costs</h3><p>Only pay for what you use. No more hardware waste.</p></div>
-      <div class="card"><h3>⚡ Performance</h3><p>Faster, more reliable systems.</p></div>
-      <div class="card"><h3>🔒 Security</h3><p>Enterprise-level protection and compliance readiness.</p></div>
-      <div class="card"><h3>📈 Scalability</h3><p>Grow instantly without buying new infrastructure.</p></div>
+      <div class="card"><h3>💰 Lower Costs</h3><p>Pay only for what you use.</p></div>
+      <div class="card"><h3>⚡ Performance</h3><p>Fast and reliable systems.</p></div>
+      <div class="card"><h3>🔒 Security</h3><p>Enterprise-grade protection.</p></div>
+      <div class="card"><h3>📈 Scale</h3><p>Grow instantly.</p></div>
     </div>
   </section>
 
@@ -168,35 +217,21 @@
   <section class="section">
     <h2>Simple Cloud Migration Flow</h2>
     <div class="diagram">
-      <div class="diagram-box"><h3>🏢 Office</h3><p>Outdated systems & risk</p></div>
+      <div class="diagram-box"><h3>🏢 Office</h3></div>
       <div class="arrow">→</div>
-      <div class="diagram-box"><h3>☁️ AWS</h3><p>Secure cloud infrastructure</p></div>
+      <div class="diagram-box"><h3>☁️ AWS</h3></div>
       <div class="arrow">→</div>
-      <div class="diagram-box"><h3>👥 Team</h3><p>Fast, reliable access</p></div>
+      <div class="diagram-box"><h3>👥 Team</h3></div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section class="section">
+  <section id="process" class="section">
     <h2>How It Works</h2>
-
     <div class="process">
-
-      <div class="card">
-        <h3>1. Assessment</h3>
-        <p>I analyze your current systems and identify cost-saving opportunities.</p>
-      </div>
-
-      <div class="card">
-        <h3>2. Migration</h3>
-        <p>Your systems are safely moved to AWS with zero downtime.</p>
-      </div>
-
-      <div class="card">
-        <h3>3. Ongoing Support</h3>
-        <p>I monitor, maintain, and optimize your infrastructure long-term.</p>
-      </div>
-
+      <div class="card"><h3>1. Assessment</h3><p>Analyze your systems.</p></div>
+      <div class="card"><h3>2. Migration</h3><p>Move to AWS safely.</p></div>
+      <div class="card"><h3>3. Support</h3><p>Ongoing optimization.</p></div>
     </div>
   </section>
 
