@@ -90,6 +90,8 @@ p { color: #94a3b8; }
   border: none;
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .cloud {
@@ -156,6 +158,33 @@ p { color: #94a3b8; }
   color: #60a5fa;
 }
 
+.contact-form {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(17,24,39,0.75);
+  padding: 35px;
+  border-radius: 16px;
+  border: 1px solid rgba(96,165,250,0.25);
+  box-shadow: 0 0 30px rgba(59,130,246,0.15);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(96,165,250,0.25);
+  background: #020617;
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  min-height: 130px;
+}
+
 .final-cta {
   padding: 140px 20px;
   text-align: center;
@@ -178,7 +207,7 @@ p { color: #94a3b8; }
       <a href="#services">Services</a>
       <a href="#benefits">Benefits</a>
       <a href="#process">Process</a>
-      <a href="#" class="nav-cta">Free Assessment</a>
+      <a href="#contact" class="nav-cta">Free Assessment</a>
     </div>
   </div>
 </div>
@@ -190,7 +219,7 @@ p { color: #94a3b8; }
   <div>
     <h1>Cut IT Costs and Eliminate Downtime with AWS Cloud</h1>
     <p>I help small businesses migrate from outdated systems to secure infrastructure.</p>
-    <button class="cta">Get a Free Cloud Assessment</button>
+    <a href="#contact" class="cta">Get a Free Cloud Assessment</a>
   </div>
 </section>
 
@@ -234,11 +263,24 @@ p { color: #94a3b8; }
   </div>
 </section>
 
+<section id="contact" class="section">
+  <h2>Request a Free Cloud Assessment</h2>
+  <p>Tell me what your business is using now, and I’ll help identify the best AWS migration path.</p>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Business Email" required>
+    <input type="text" placeholder="Company Name">
+    <textarea placeholder="What systems are you looking to move to the cloud?"></textarea>
+    <button class="cta" type="submit">Submit Request</button>
+  </form>
+</section>
+
 <section class="final-cta">
   <div class="cta-container">
     <h2>Ready to Modernize Your Business?</h2>
     <p>Get a free consultation and see how much you can save.</p>
-    <button class="cta">Start Your Cloud Migration</button>
+    <a href="#contact" class="cta">Start Your Cloud Migration</a>
   </div>
 </section>
 
