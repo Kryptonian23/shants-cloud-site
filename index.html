@@ -13,18 +13,29 @@
       color: white;
     }
 
-    /* NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(11,18,32,0.9);
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      box-sizing: border-box;
+    }
+
+    .navbar-inner {
+      width: 100%;
+      max-width: 1100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,0.92);
+      border: 1px solid rgba(96,165,250,0.2);
+      border-radius: 12px;
+      padding: 14px 20px;
+      box-sizing: border-box;
     }
 
     .logo {
@@ -47,10 +58,9 @@
       background: #2563eb;
       padding: 8px 16px;
       border-radius: 6px;
-      color: white;
+      color: white !important;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -151,36 +161,33 @@
     .final-cta {
       background: #111827;
       padding: 60px 20px;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
   <div class="navbar">
-    <div class="logo">Shants Cloud</div>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#process">Process</a>
-      <a href="#" class="nav-cta">Free Assessment</a>
+    <div class="navbar-inner">
+      <div class="logo">Shants Cloud</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#process">Process</a>
+        <a href="#" class="nav-cta">Free Assessment</a>
+      </div>
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>Cut IT Costs and Eliminate Downtime with AWS Cloud</h1>
-      <p>
-        I help small businesses migrate from outdated systems to secure,
-        scalable cloud infrastructure without the headaches.
-      </p>
+      <p>I help small businesses migrate from outdated systems to secure, scalable cloud infrastructure without the headaches.</p>
       <button class="cta">Get a Free Cloud Assessment</button>
     </div>
   </section>
 
-  <!-- PAIN POINTS -->
   <section class="section">
     <h2>Is Your Business Dealing With This?</h2>
     <div class="pain-points">
@@ -191,7 +198,6 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services" class="section">
     <h2>What I Do</h2>
     <div class="services">
@@ -202,7 +208,6 @@
     </div>
   </section>
 
-  <!-- BENEFITS -->
   <section id="benefits" class="section">
     <h2>Why Move to the Cloud?</h2>
     <div class="benefits">
@@ -213,7 +218,6 @@
     </div>
   </section>
 
-  <!-- DIAGRAM -->
   <section class="section">
     <h2>Simple Cloud Migration Flow</h2>
     <div class="diagram">
@@ -225,7 +229,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section id="process" class="section">
     <h2>How It Works</h2>
     <div class="process">
@@ -235,7 +238,6 @@
     </div>
   </section>
 
-  <!-- FINAL CTA -->
   <section class="final-cta">
     <h2>Ready to Modernize Your Business?</h2>
     <p>Get a free consultation and see how much you can save.</p>
