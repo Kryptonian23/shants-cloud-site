@@ -63,7 +63,8 @@
 
     .pain-points,
     .services,
-    .benefits {
+    .benefits,
+    .process {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
@@ -104,14 +105,14 @@
       min-width: 220px;
     }
 
-    .diagram-box h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
     .arrow {
       font-size: 36px;
       color: #60a5fa;
+    }
+
+    .final-cta {
+      background: #111827;
+      padding: 60px 20px;
     }
   </style>
 </head>
@@ -133,108 +134,77 @@
   <!-- PAIN POINTS -->
   <section class="section">
     <h2>Is Your Business Dealing With This?</h2>
-
     <div class="pain-points">
-      <div class="card">
-        <h3>💸 Expensive Hardware</h3>
-        <p>Constant upgrades, repairs, and maintenance eating your budget.</p>
-      </div>
-
-      <div class="card">
-        <h3>⚠️ Risk of Data Loss</h3>
-        <p>No reliable backup system means one failure could cost everything.</p>
-      </div>
-
-      <div class="card">
-        <h3>🐢 Slow Systems</h3>
-        <p>Outdated infrastructure slowing down your team and productivity.</p>
-      </div>
-
-      <div class="card">
-        <h3>🔓 Security Concerns</h3>
-        <p>Worried about breaches, compliance, and protecting client data.</p>
-      </div>
+      <div class="card"><h3>💸 Expensive Hardware</h3><p>Constant upgrades, repairs, and maintenance eating your budget.</p></div>
+      <div class="card"><h3>⚠️ Risk of Data Loss</h3><p>No reliable backup system means one failure could cost everything.</p></div>
+      <div class="card"><h3>🐢 Slow Systems</h3><p>Outdated infrastructure slowing down your team and productivity.</p></div>
+      <div class="card"><h3>🔓 Security Concerns</h3><p>Worried about breaches, compliance, and protecting client data.</p></div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section class="section">
     <h2>What I Do</h2>
-
     <div class="services">
-      <div class="card">
-        <h3>☁️ Cloud Migration</h3>
-        <p>I move your systems from physical servers to AWS with zero disruption to your business.</p>
-      </div>
-
-      <div class="card">
-        <h3>🔒 Secure Infrastructure</h3>
-        <p>Your data is protected with private networks, access control, and industry-grade security.</p>
-      </div>
-
-      <div class="card">
-        <h3>💾 Automated Backups</h3>
-        <p>Your business is always protected with automatic backups and recovery systems.</p>
-      </div>
-
-      <div class="card">
-        <h3>📊 Ongoing Monitoring</h3>
-        <p>I monitor your systems so issues are caught and fixed before they impact your business.</p>
-      </div>
+      <div class="card"><h3>☁️ Cloud Migration</h3><p>I move your systems from physical servers to AWS with zero disruption.</p></div>
+      <div class="card"><h3>🔒 Secure Infrastructure</h3><p>Private networks, access control, and enterprise-level protection.</p></div>
+      <div class="card"><h3>💾 Automated Backups</h3><p>Your business is always protected with automatic backups.</p></div>
+      <div class="card"><h3>📊 Monitoring</h3><p>Issues are detected and resolved before impacting operations.</p></div>
     </div>
   </section>
 
   <!-- BENEFITS -->
   <section class="section">
     <h2>Why Move to the Cloud?</h2>
-
     <div class="benefits">
-      <div class="card">
-        <h3>💰 Lower Costs</h3>
-        <p>Stop paying for expensive hardware, repairs, and wasted capacity. Only pay for what you use.</p>
-      </div>
-
-      <div class="card">
-        <h3>⚡ High Performance</h3>
-        <p>Your systems run faster and more reliably with enterprise-grade infrastructure.</p>
-      </div>
-
-      <div class="card">
-        <h3>🔒 Strong Security</h3>
-        <p>Advanced protection, encryption, and compliance-ready systems keep your data safe.</p>
-      </div>
-
-      <div class="card">
-        <h3>📈 Scale Anytime</h3>
-        <p>Instantly grow your systems as your business grows without buying new hardware.</p>
-      </div>
+      <div class="card"><h3>💰 Lower Costs</h3><p>Only pay for what you use. No more hardware waste.</p></div>
+      <div class="card"><h3>⚡ Performance</h3><p>Faster, more reliable systems.</p></div>
+      <div class="card"><h3>🔒 Security</h3><p>Enterprise-level protection and compliance readiness.</p></div>
+      <div class="card"><h3>📈 Scalability</h3><p>Grow instantly without buying new infrastructure.</p></div>
     </div>
   </section>
 
-  <!-- VISUAL DIAGRAM -->
+  <!-- DIAGRAM -->
   <section class="section">
     <h2>Simple Cloud Migration Flow</h2>
-
     <div class="diagram">
-      <div class="diagram-box">
-        <h3>🏢 Your Office</h3>
-        <p>Old servers, local files, manual backups, and IT headaches.</p>
-      </div>
-
+      <div class="diagram-box"><h3>🏢 Office</h3><p>Outdated systems & risk</p></div>
       <div class="arrow">→</div>
-
-      <div class="diagram-box">
-        <h3>☁️ AWS Cloud</h3>
-        <p>Secure hosting, backups, monitoring, and scalable infrastructure.</p>
-      </div>
-
+      <div class="diagram-box"><h3>☁️ AWS</h3><p>Secure cloud infrastructure</p></div>
       <div class="arrow">→</div>
-
-      <div class="diagram-box">
-        <h3>👥 Your Team</h3>
-        <p>Faster access, better reliability, and less downtime.</p>
-      </div>
+      <div class="diagram-box"><h3>👥 Team</h3><p>Fast, reliable access</p></div>
     </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section">
+    <h2>How It Works</h2>
+
+    <div class="process">
+
+      <div class="card">
+        <h3>1. Assessment</h3>
+        <p>I analyze your current systems and identify cost-saving opportunities.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. Migration</h3>
+        <p>Your systems are safely moved to AWS with zero downtime.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Ongoing Support</h3>
+        <p>I monitor, maintain, and optimize your infrastructure long-term.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Ready to Modernize Your Business?</h2>
+    <p>Get a free consultation and see how much you can save.</p>
+    <button class="cta">Start Your Cloud Migration</button>
   </section>
 
 </body>
