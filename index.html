@@ -14,19 +14,18 @@ body {
   overflow-x: hidden;
 }
 
-/* subtle background glow */
 body::before {
   content: "";
   position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(59,130,246,0.25), transparent);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(59,130,246,0.15), transparent);
   top: -200px;
-  left: -200px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 0;
 }
 
-/* NAVBAR */
 .navbar {
   position: fixed;
   width: 100%;
@@ -34,6 +33,7 @@ body::before {
   justify-content: center;
   padding: 20px;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .navbar-inner {
@@ -68,15 +68,15 @@ body::before {
   border-radius: 8px;
 }
 
-/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 140px;
+  padding: 140px 20px 20px;
   position: relative;
+  box-sizing: border-box;
 }
 
 h1 { font-size: 54px; }
@@ -89,9 +89,9 @@ p { color: #94a3b8; }
   box-shadow: 0 0 20px rgba(59,130,246,0.6);
   border: none;
   color: white;
+  cursor: pointer;
 }
 
-/* floating cloud visuals */
 .cloud {
   position: absolute;
   opacity: 0.08;
@@ -107,7 +107,6 @@ p { color: #94a3b8; }
   50% { transform: translateY(-20px); }
 }
 
-/* SECTIONS */
 .section {
   padding: 100px 20px;
   text-align: center;
@@ -137,7 +136,6 @@ p { color: #94a3b8; }
   box-shadow: 0 0 25px rgba(59,130,246,0.25);
 }
 
-/* DIAGRAM */
 .diagram {
   display: flex;
   justify-content: center;
@@ -158,9 +156,15 @@ p { color: #94a3b8; }
   color: #60a5fa;
 }
 
-/* FINAL CTA */
 .final-cta {
-  padding: 120px 20px;
+  padding: 140px 20px;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(59,130,246,0.15), transparent);
+}
+
+.cta-container {
+  max-width: 700px;
+  margin: auto;
 }
 </style>
 </head>
@@ -231,8 +235,11 @@ p { color: #94a3b8; }
 </section>
 
 <section class="final-cta">
-  <h2>Ready to Modernize Your Business?</h2>
-  <button class="cta">Start Your Cloud Migration</button>
+  <div class="cta-container">
+    <h2>Ready to Modernize Your Business?</h2>
+    <p>Get a free consultation and see how much you can save.</p>
+    <button class="cta">Start Your Cloud Migration</button>
+  </div>
 </section>
 
 </body>
